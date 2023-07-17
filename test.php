@@ -1,6 +1,5 @@
 <?php  
-$name=$_POST["name"];//receiving name field value in $name variable  
-$password=$_POST["password"];//receiving password field value in $password variable  
+$text=$_POST["input"];//receiving name field value in $text variable  
   
-echo "Welcome: $name, your password is: $password";  
+echo "You Entered: $text";
 ?>  
