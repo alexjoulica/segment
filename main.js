@@ -7,7 +7,7 @@ if (!localStorage.getItem("page_type")) {
      localStorage.setItem("page_type", pageType);
 }
 let json = "";
-if (pageType=="banking" || (pageType !== "banking" || pageType !== "insurance")){
+if (pageType=="banking"){
      json = {
     "companyName": "FinCX",
     "navBarItems": ["Products","Latest News", "Resources"],
@@ -62,7 +62,33 @@ if (pageType=="banking" || (pageType !== "banking" || pageType !== "insurance"))
     }]  
 };
 } else {
-     alert("Web page does not exist");
+     alert("Webpage does not exist.");
+     json = {
+    "companyName": "FinCX",
+    "navBarItems": ["Products","Latest News", "Resources"],
+    "dropdownOptns": ["Mortgages", "Savings", "Credit Cards"],
+    "alternatingImgStyle": [["",""], ["style='float: right'", "style='left: 0;'"], ["",""]],
+    "coverImg": "hometopimg.jpg",
+    "imgTitle": "Personalized Banking",
+    "images": ["mortgage.jpg", "savings.jpg", "creditcard.jpg"],
+    "imgTextTitle": "Student Accounts",
+    "imgText": "FinCX student accounts provide the most benefits for you as you start in college",
+    "subtext": [{
+        "title": "Mortgages",
+        "text1": "Mortgages designed for your lifestyle",
+        "text2": "Our range of mortgages offer choice and flexibility no matter where you are on your journey"
+    },
+    {
+        "title": "Savings",
+        "text1": "Savings products built around you",
+        "text2": "FinCX offers the most competetive rates with a host of added benefits."
+    },
+    {
+        "title": "Credit Cards",
+        "text1": "Personal and Commercial Credit Cards",
+        "text2": "Credit card products designed to meet the needs of both personal and commercial customers."
+    }]
+};
 }
 let productsjson = {
     "products": [["Education Saver", "students.jpg"],["SimplySavings","family.jpg"],["Junior Saver", "backpack.jpg"]],
