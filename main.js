@@ -1,3 +1,8 @@
+let urlString = window.location.search;
+console.log(urlString);
+let urlParams = new URLSearchParams(urlString);
+let homepageType = urlParams.get('page_type');
+console.log(homepageType);
 let json1 = {
     "companyName": "FinCX",
     "navBarItems": ["Products","Latest News", "Resources"],
