@@ -1,12 +1,12 @@
 let urlString = window.location.search;
 let urlParams = new URLSearchParams(urlString);
-let homepageType = urlParams.get('page_type');
-if (localStorage.getItem('page_type')==null) {
-localStorage.setItem("page_type", homepageType);
+let pageType = urlParams.get('page_type');
+console.log(pageType);
+if (localStorage.getItem("page_type"!=null)) {
+    localStorage.setItem("page_type",pageType);
 }
-console.log(homepageType);
 let json = "";
-if (homepageType=="banking"){
+if (pageType=="banking"){
      json = {
     "companyName": "FinCX",
     "navBarItems": ["Products","Latest News", "Resources"],
@@ -33,7 +33,7 @@ if (homepageType=="banking"){
         "text2": "Credit card products designed to meet the needs of both personal and commercial customers."
     }]
 };
-} else if (homepageType="insurance") {
+} else if (pageType="insurance") {
     json = {
     "companyName": "InsCX",
     "navBarItems": ["Products","Latest News", "Resources"],
