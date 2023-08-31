@@ -160,7 +160,7 @@ window.onclick = function(event) {
 function loadDemo() {
     let navigationBar = [`
     <div class="navbar">
-        <a style="width: 20%; font-weight: bolder; font-size: 50px;" onclick="window.location.href = 'index.html';">${json.companyName}</a>
+        <a style="width: 20%; font-weight: bolder; font-size: 50px;" onclick="window.location.href = 'https://main.dogpsqsj8hdt0.amplifyapp.com/?page_type=${homepageType}';">${json.companyName}</a>
         <div class="dropdown">
             <button style="font-weight: bolder;" class="dropbtn" onclick="productsDropdown()">${json.navBarItems[0]}</button>
             <div class="dropdown-content" id="productsDropdown">
