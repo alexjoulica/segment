@@ -1,28 +1,32 @@
-<!DOCTYPE HTML>
-<html lang="en">
-  <head>
-    <title>Segment Website</title>
-    <meta name="author" content="Alex Wright">
-    <meta name="description" content="Segment Website">
+<!DOCTYPE html>
+<html>
+<head>
+    <title id="webTitle"></title>
+    <meta name="description" content="FinCX Home">
     <meta charset="utf-8">
+    <link rel="stylesheet" href="main.css">
+    <script type="text/javascript" src="scripts/main.js"></script>
     <script>
-  !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on","addSourceMiddleware","addIntegrationMiddleware","setAnonymousId","addDestinationMiddleware"];analytics.factory=function(e){return function(){if(window.analytics.initialized)return window.analytics[e].apply(window.analytics,arguments);var i=Array.prototype.slice.call(arguments);i.unshift(e);analytics.push(i);return analytics}};for(var i=0;i<analytics.methods.length;i++){var key=analytics.methods[i];analytics[key]=analytics.factory(key)}analytics.load=function(key,i){var t=document.createElement("script");t.type="text/javascript";t.async=!0;t.src="https://cdn.segment.com/analytics.js/v1/" + key + "/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n);analytics._loadOptions=i};analytics._writeKey="YB1LvZHc0FCZVE1ubGsCXdJXInFMIZsN";;analytics.SNIPPET_VERSION="4.16.1";
-  analytics.load("YB1LvZHc0FCZVE1ubGsCXdJXInFMIZsN");
-  analytics.page();
-  }}();
-</script>
-  </head>
-<body>
-  <h1>Website</h1>
-<form
-  action="test.php"
-  method="POST">
-  <label>
-    Enter Text Here (php 1):
-    <input type="text" name="input">
-  </label>
-  <button type="submit">Send</button>
-</form>
-  </form>
+    // Make sure the savings event is only sent once per session
+    // Close the window to reset the session
+    if (!sessionStorage.getItem(window.location.pathname) && localStorage.getItem("usrnm", null) != null) {
+        sessionStorage.setItem(window.location.pathname, true);
+
+        analytics.track("Homepage", {
+            sessionId: sessionId,
+            username: localStorage.getItem("usrnm", "null"),
+            channel: "Web",
+        });
+    }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsrsasign/8.0.20/jsrsasign-all-min.js"></script>
+</head>
+
+<body onload="loadDemo()">
+    <script>loadSite()</script>
+    <script>addContainerstoHomePage()</script>
 </body>
 </html>

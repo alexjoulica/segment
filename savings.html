@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title id="webTitle">FinCX</title>
+        <meta name="description" content="Savings" />
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="main.css" />
+        <script type="text/javascript" src="scripts/main.js"></script>
+        <script>
+        // Make sure the savings event is only sent once per session
+        // Close the window to reset the session
+        if (!sessionStorage.getItem(window.location.pathname)) {
+            sessionStorage.setItem(window.location.pathname, true);
+
+            analytics.track("Savings", {
+                sessionId: sessionId,
+                username: localStorage.getItem("usrnm", "null"),
+                channel: "Web",
+            });
+        }
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jsrsasign/8.0.20/jsrsasign-all-min.js"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap" rel="stylesheet">
+    </head>
+
+    <body onload="loadDemo()">
+        <div id="container">
+            <div style="color: white; top: 27.5%" class="title">
+            <h1>Our Savings Accounts</h1>
+            </div>
+            <img class="mainimg" src="savingscrop.jpg" alt="img1">
+            <div style="background-color: rgba(255, 94, 0, 0.7)" class="text">
+                <h1>SimplySave</h1>
+                <p1>Our SimplySave account is designed to meet your regular saving needs.</p1>
+                <br /><br />
+                <button class="btn">Find Out More</button>
+            </div>
+        </div>
+    </body>
+    <script>addSavingsToProductPage();</script>
+</html>

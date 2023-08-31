@@ -1,0 +1,314 @@
+#container {
+    position: relative;
+}
+#container .btn {
+    display: inline-block;
+    position: relative;
+    width: auto;
+    background-color: white;
+    color: black;
+    font-size: 16px;
+    padding: 16px 30px;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    text-align: center;
+    font-family: 'Rubik', sans-serif;
+}
+
+#container .btn:hover {
+    background-color: black;
+    color: white;
+}
+
+body {
+    background-color: rgb(15, 74, 168);
+    margin: 0;
+}
+.text {
+    position: absolute;
+    top: 30%;
+    width: 300px;
+    right: 10%;
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(128, 128, 128, 0.7);
+    border-radius: 6px;
+    font-family: 'Rubik', sans-serif;
+    font-size: 20px;
+    color: white;
+}
+
+.subcontainer {
+    position: relative;
+    width: 100%;
+    background-color: rgb(244, 244, 244);
+    display: inline-block;
+    font-family: 'Rubik', sans-serif;
+    font-size: 25px;
+}
+
+.subcontainer img {
+    width: 50%;
+}
+
+.fill {
+    object-fit: fill;
+}
+
+.cover {
+    object-fit: cover;
+}
+
+.subcontainer .btn {
+    position: absolute;
+    background-color: #f1f1f1;
+    color: black;
+    font-size: 16px;
+    padding: 16px 30px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.subcontainer .btn:hover {
+    background-color: black;
+    color: white;
+}
+
+#container nav {
+    display: inline;
+    position: sticky;
+}
+
+.text button {
+    width: 100%;
+    background-color: white;
+    border-radius: 8px;
+}
+
+.subtext {
+    width: 50%;
+    background-color: rgb(244, 244, 244);
+    position: absolute;
+    right: 0;
+    top: 0;
+    text-align: left;
+}
+
+#outer {
+    position: relative;
+    display: table;
+    width: 100%;
+    background-color: #F1F1F1;
+    margin: 0px;
+    border: 1px solid white;
+}
+
+#outer img {
+    position: relative;
+    width: 50%;
+    left: 10%;
+    margin: 20px;
+    border-radius: 7px;
+    border: 2px solid white;
+}
+
+.applyOnline {
+    background-color: rgb(0, 68, 255);
+    color: white;
+    text-align: center;
+    font-size: 20px;
+    padding: 14px;
+    width: 157.83px;
+    border: none;
+}
+
+.findOutMore {
+    background-color: rgba(118, 118, 118, 0);
+    color: black;
+    text-align: center;
+    font-size: 20px;
+    border: 1px solid black;
+    padding: 14px;
+}
+
+.inner {
+    width: 70%;
+    height: auto;
+    text-align: left;
+    background-color: rgb(244, 244, 244);
+    padding: 6px;
+    display: table-cell;
+}
+
+.title {
+    position: absolute;
+    top: 25%;
+    left: 10%;
+    font-size: 20px;
+    font-family: 'Rubik', sans-serif;
+    color: rgb(15, 74, 168)
+}
+
+a {
+    cursor: pointer;
+}
+
+#buttons {
+    position: absolute;
+    float: left;
+    right: 0;
+    margin: 22.41px;
+}
+
+button {
+    cursor: pointer;
+}
+
+.navbar {
+    position: relative;
+    top: 0;
+    left: 0;
+    font-family: 'Rubik', sans-serif;
+    width: 100%;
+    z-index: 1;
+}
+
+.navbar a {
+    float: left;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    padding: 20px 0px 20px 0px;
+    margin: 0;
+    font-weight: bolder;
+}
+
+.dropdown {
+    float: left;
+    overflow: hidden;
+    width: 20%;
+    text-align: center;
+}
+
+.dropdown .dropbtn {
+    cursor: pointer;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 41px 0px 40px 0px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+    width: 100%;
+}
+
+.navbar a:hover,
+.dropdown:hover .dropbtn,
+.dropbtn:focus {
+    background-color: white;
+    color: black;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    z-index: 1;
+    margin: 0;
+}
+
+.dropdown-content a {
+    float: none;
+    color: black;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    margin: 0;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+    margin: 0;
+}
+
+.show {
+    display: block;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.item {
+    flex: 1;
+    background-color: #f5f5f5;
+    text-align: center;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.image {
+    border-radius: 8px;
+    position: relative;
+    left: 0;
+    max-width: 100%;
+    padding: 10px 10px 10px 40px;
+}
+
+.info {
+    margin-top: 0;
+    color: black;
+    font-family: 'Rubik', sans-serif;
+    font-size: 18px;
+    background-color: rgb(244, 244, 244);
+}
+
+.info-text {
+    font-weight: bold;
+}
+.subimage {
+    vertical-align: bottom;
+}
+.mainimg {
+    width: 100%;
+    vertical-align: bottom;
+}
+.getstarted {
+    color: rgb(20, 146, 214);
+}
+p {
+    margin: 0;
+}
+.divider {
+    background-color: white;
+    font-size: 15px;
+    text-align: left;
+    display: inline-block;
+    padding: 30px 30px 30px 30px;
+    margin: 0 15px 0 15px;
+}
+.divider h1 {
+    margin: 0;
+}
+ul {
+    padding: 25px;
+}
+.startChatBtn {
+    position: fixed;
+    background-color:rgb(0, 45, 118);
+    color: white;
+    padding: 20px 32px;
+    border: none;
+    bottom: 20px;
+    right: 20px;
+    font-family: 'Rubik', sans-serif;
+    font-size: 18px;
+}
