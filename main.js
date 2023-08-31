@@ -2,63 +2,61 @@ let urlString = window.location.search;
 let urlParams = new URLSearchParams(urlString);
 let homepageType = urlParams.get('page_type');
 console.log(homepageType);
-function chooseJSON() {
-    if (homepageType=="banking"){
-    let json = {
-        "companyName": "FinCX",
-        "navBarItems": ["Products","Latest News", "Resources"],
-        "dropdownOptns": ["Mortgages", "Savings", "Credit Cards"],
-        "alternatingImgStyle": [["",""], ["style='float: right'", "style='left: 0;'"], ["",""]],
-        "coverImg": "hometopimg.jpg",
-        "imgTitle": "Personalized Banking",
-        "images": ["mortgage.jpg", "savings.jpg", "creditcard.jpg"],
-        "imgTextTitle": "Student Accounts",
-        "imgText": "FinCX student accounts provide the most benefits for you as you start in college",
-        "subtext": [{
-            "title": "Mortgages",
-            "text1": "Mortgages designed for your lifestyle",
-            "text2": "Our range of mortgages offer choice and flexibility no matter where you are on your journey"
-        },
-        {
-            "title": "Savings",
-            "text1": "Savings products built around you",
-            "text2": "FinCX offers the most competetive rates with a host of added benefits."
-        },
-        {
-            "title": "Credit Cards",
-            "text1": "Personal and Commercial Credit Cards",
-            "text2": "Credit card products designed to meet the needs of both personal and commercial customers."
-        }]
-    };
-    } else if (homepageType="insurance") {
-    let json = {
-        "companyName": "InsCX",
-        "navBarItems": ["Products","Latest News", "Resources"],
-        "dropdownOptns": ["Student Insurance", "Standard Insurance", "Financing"],
-        "alternatingImgStyle": [["",""], ["style='float: right'", "style='left: 0;'"], ["",""]],
-        "coverImg": "cover.jpg",
-        "imgTitle": "Personalized Insurance",
-        "images": ["yellowporsche.jpg", "greenporsche.jpg", "redporsche.jpg"],
-        "imgTextTitle": "Student Insurance",
-        "imgText": "InsCX student insurance provide the most benefits for you as you start in college",
-        "subtext": [{
-            "title": "Yellow Porsche 992 GT3 RS",
-            "text1": "Engine: 4.1L Turbo",
-            "text2": "Colour: Yellow"
-        },
-        {
-            "title": "Green Porsche 992 GT3 RS",
-            "text1": "Engine: 3.9L Standard",
-            "text2": "Colour: Green"
-        },
-        {
-            "title": "Red Porsche 992 GT3 RS",
-            "text1": "Engine: 4.8L Twin Turbo",
-            "text2": "Colour: Red"
-        }]  
-    };
-    }
-    return json;
+let json = "";
+if (homepageType=="banking"){
+     json = {
+    "companyName": "FinCX",
+    "navBarItems": ["Products","Latest News", "Resources"],
+    "dropdownOptns": ["Mortgages", "Savings", "Credit Cards"],
+    "alternatingImgStyle": [["",""], ["style='float: right'", "style='left: 0;'"], ["",""]],
+    "coverImg": "hometopimg.jpg",
+    "imgTitle": "Personalized Banking",
+    "images": ["mortgage.jpg", "savings.jpg", "creditcard.jpg"],
+    "imgTextTitle": "Student Accounts",
+    "imgText": "FinCX student accounts provide the most benefits for you as you start in college",
+    "subtext": [{
+        "title": "Mortgages",
+        "text1": "Mortgages designed for your lifestyle",
+        "text2": "Our range of mortgages offer choice and flexibility no matter where you are on your journey"
+    },
+    {
+        "title": "Savings",
+        "text1": "Savings products built around you",
+        "text2": "FinCX offers the most competetive rates with a host of added benefits."
+    },
+    {
+        "title": "Credit Cards",
+        "text1": "Personal and Commercial Credit Cards",
+        "text2": "Credit card products designed to meet the needs of both personal and commercial customers."
+    }]
+};
+} else if (homepageType="insurance") {
+    json = {
+    "companyName": "InsCX",
+    "navBarItems": ["Products","Latest News", "Resources"],
+    "dropdownOptns": ["Student Insurance", "Standard Insurance", "Financing"],
+    "alternatingImgStyle": [["",""], ["style='float: right'", "style='left: 0;'"], ["",""]],
+    "coverImg": "cover.jpg",
+    "imgTitle": "Personalized Insurance",
+    "images": ["yellowporsche.jpg", "greenporsche.jpg", "redporsche.jpg"],
+    "imgTextTitle": "Student Insurance",
+    "imgText": "InsCX student insurance provide the most benefits for you as you start in college",
+    "subtext": [{
+        "title": "Yellow Porsche 992 GT3 RS",
+        "text1": "Engine: 4.1L Turbo",
+        "text2": "Colour: Yellow"
+    },
+    {
+        "title": "Green Porsche 992 GT3 RS",
+        "text1": "Engine: 3.9L Standard",
+        "text2": "Colour: Green"
+    },
+    {
+        "title": "Red Porsche 992 GT3 RS",
+        "text1": "Engine: 4.8L Twin Turbo",
+        "text2": "Colour: Red"
+    }]  
+};
 }
 let productsjson = {
     "products": [["Education Saver", "students.jpg"],["SimplySavings","family.jpg"],["Junior Saver", "backpack.jpg"]],
@@ -159,7 +157,7 @@ window.onclick = function(event) {
     }
 }
 
-function loadDemo(json) {
+function loadDemo() {
     let navigationBar = [`
     <div class="navbar">
         <a style="width: 20%; font-weight: bolder; font-size: 50px;" onclick="window.location.href = 'index.html';">${json.companyName}</a>
@@ -285,8 +283,7 @@ function addSavingsToProductPage() {
         document.getElementsByTagName("body")[0].innerHTML += productsHTML;
     }
 }
-function addContainerstoHomePage(json) {
-    let json = chooseJSON()
+function addContainerstoHomePage() {
     for (let i = 0; i < 3; i++) {
         let homeHTML = `
         <div style="margin: -4px 0 0 0;" class="subcontainer">
@@ -304,7 +301,7 @@ function addContainerstoHomePage(json) {
         document.getElementsByTagName("body")[0].innerHTML += homeHTML;
     }
 }
-function loadSite(json) {
+function loadSite() {
     let topHTML = 
     `<div id="container">
     <div class="title">
