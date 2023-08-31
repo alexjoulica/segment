@@ -169,7 +169,7 @@ function loadDemo() {
             <button style="font-weight: bolder;" class="dropbtn" onclick="productsDropdown()">${json.navBarItems[0]}</button>
             <div class="dropdown-content" id="productsDropdown">
                 <a style="padding: 20px 32px 20px 32px">${json.dropdownOptns[0]}</a>
-                <a style="padding: 20px 32px 20px 32px" onclick="window.location.href = 'savings.html';">${json.dropdownOptns[1]}</a>
+                <a style="padding: 20px 32px 20px 32px" onclick="window.location.href = 'savings.html?page_type=${localStorage.getItem("page_type")}';">${json.dropdownOptns[1]}</a>
                 <a style="padding: 20px 32px 20px 32px">${json.dropdownOptns[2]}</a>
             </div>
         </div> 
