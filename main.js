@@ -1,3 +1,4 @@
+let pageType = localStorage.getItem("page_type");
 let json = "";
 if (pageType=="banking"){
      json = {
