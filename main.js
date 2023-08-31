@@ -1,10 +1,3 @@
-let urlString = window.location.search;
-let urlParams = new URLSearchParams(urlString);
-let pageType = urlParams.get('page_type');
-console.log(pageType);
-if (localStorage.getItem("page_type")!==null)) {
-    localStorage.setItem("page_type",pageType);
-}
 let json = "";
 if (pageType=="banking"){
      json = {
