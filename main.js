@@ -61,6 +61,8 @@ if (pageType=="banking"){
         "text2": "Colour: Red"
     }]  
 };
+} else {
+     alert("Web page does not exist");
 }
 let productsjson = {
     "products": [["Education Saver", "students.jpg"],["SimplySavings","family.jpg"],["Junior Saver", "backpack.jpg"]],
