@@ -1,8 +1,9 @@
 let urlString = window.location.search;
-console.log(urlString);
 let urlParams = new URLSearchParams(urlString);
 let homepageType = urlParams.get('page_type');
+if (localStorage.getItem('page_type')==null) {
 localStorage.setItem("page_type", homepageType);
+}
 console.log(homepageType);
 let json = "";
 if (homepageType=="banking"){
