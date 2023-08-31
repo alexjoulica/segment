@@ -2,7 +2,7 @@ let urlString = window.location.search;
 let urlParams = new URLSearchParams(urlString);
 let homepageType = urlParams.get('page_type');
 console.log(homepageType);
-function chooseJSON(homepageType) {
+function chooseJSON() {
     if (homepageType=="banking"){
     let json = {
         "companyName": "FinCX",
@@ -58,6 +58,7 @@ function chooseJSON(homepageType) {
         }]  
     };
     }
+    return json;
 }
 let productsjson = {
     "products": [["Education Saver", "students.jpg"],["SimplySavings","family.jpg"],["Junior Saver", "backpack.jpg"]],
@@ -158,7 +159,7 @@ window.onclick = function(event) {
     }
 }
 
-function loadDemo() {
+function loadDemo(json) {
     let navigationBar = [`
     <div class="navbar">
         <a style="width: 20%; font-weight: bolder; font-size: 50px;" onclick="window.location.href = 'index.html';">${json.companyName}</a>
@@ -284,7 +285,7 @@ function addSavingsToProductPage() {
         document.getElementsByTagName("body")[0].innerHTML += productsHTML;
     }
 }
-function addContainerstoHomePage() {
+function addContainerstoHomePage(json) {
     let json = chooseJSON()
     for (let i = 0; i < 3; i++) {
         let homeHTML = `
@@ -303,8 +304,7 @@ function addContainerstoHomePage() {
         document.getElementsByTagName("body")[0].innerHTML += homeHTML;
     }
 }
-function loadSite() {
-    let json = chooseJSON()
+function loadSite(json) {
     let topHTML = 
     `<div id="container">
     <div class="title">
