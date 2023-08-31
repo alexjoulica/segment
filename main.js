@@ -7,7 +7,7 @@ if (!localStorage.getItem("page_type")) {
      localStorage.setItem("page_type", pageType);
 }
 let json = "";
-if (pageType=="banking"){
+if (localStorage.getItem("page_type")=="banking"){
      json = {
     "companyName": "FinCX",
     "navBarItems": ["Products","Latest News", "Resources"],
@@ -34,7 +34,7 @@ if (pageType=="banking"){
         "text2": "Credit card products designed to meet the needs of both personal and commercial customers."
     }]
 };
-} else if (pageType="insurance") {
+} else if (localStorage.getItem("page_type")="insurance") {
     json = {
     "companyName": "InsCX",
     "navBarItems": ["Products","Latest News", "Resources"],
