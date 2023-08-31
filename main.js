@@ -3,6 +3,8 @@ let urlParams = new URLSearchParams(urlString);
 let pageType = urlParams.get('page_type');
 if (!localStorage.getItem("page_type")) {
      localStorage.setItem("page_type", pageType);
+} else if (pageType && (pageType !== localStorage.getItem("page_type"))) {
+     localStorage.setItem("page_type", pageType);
 }
 let json = "";
 if (pageType=="banking"){
