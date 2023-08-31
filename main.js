@@ -7,7 +7,7 @@ if (!localStorage.getItem("page_type")) {
      localStorage.setItem("page_type", pageType);
 }
 let json = "";
-if (pageType=="banking"){
+if (pageType=="banking" || (pageType !== "banking" || pageType !== "insurance")){
      json = {
     "companyName": "FinCX",
     "navBarItems": ["Products","Latest News", "Resources"],
