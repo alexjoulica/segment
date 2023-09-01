@@ -321,41 +321,5 @@ function loadSite() {
     </div>`
     document.getElementsByTagName("body")[0].innerHTML += topHTML;
 }
-//configuring AWS SDK
-let accessKeyId = null;
-let secretAccessKey = null;
-AWS.config.credentials = new AWS.Credentials(accessKeyId, secretAccessKey, null);
-const chime = new AWS.Chime({region: 'eu-west-1'});
-chime.endpoint = new
-AWS.Endpoint('https://service.chime.aws.amazon.come/console');
 
-//creating a meeting
-const meeting = await chime.createMeeting({
-    ClientRequestToken: clientRequestId,
-    MediaRegion: mediaRegion,
-    NotificationsConfiguration: {
-        SqsQueueArn: sqsArn,
-        SnsTopicArn: SnsTopicArn,
-    }
-}).promise();
-
-//creating an attendee
-const attendee = await chime.createAttendee({
-    MeetingId: meeting.MeetingId,
-    ExternalUserId: externalUserId,
-}).promise();
-
-//setting up the meeting session
-const config = new MeetingSessionConfiguration(createMeetingResponse, createAttendeeResponse);
-const logger = new ConsoleLogger('SDK', LogLevel.DEBUG);
-const deviceController = new DefaultDeviceController(logger);
-const meetingSession = new DefaultMeetingSession(config, logger, deviceController);
-const audioVideo = meetingSession.audioVideo;
-
-//registering for callbacks and starting audio-video
-audioVideo.realtimeSubscribeToMuteAndUnmuteLocalAudio(handler);
-audioVideo.realtimeSubscribeToVolumelndicator(attendeeld, callback);
-audioVideo.addDeviceChangeObserver(this);
-audioVideo.addObserver(this);
-audioVideo.start();
 
