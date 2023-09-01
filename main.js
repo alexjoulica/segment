@@ -61,34 +61,6 @@ if (pageType=="banking"){
         "text2": "Colour: Red"
     }]  
 };
-} else {
-     alert("Webpage does not exist.");
-     json = {
-    "companyName": "FinCX",
-    "navBarItems": ["Products","Latest News", "Resources"],
-    "dropdownOptns": ["Mortgages", "Savings", "Credit Cards"],
-    "alternatingImgStyle": [["",""], ["style='float: right'", "style='left: 0;'"], ["",""]],
-    "coverImg": "hometopimg.jpg",
-    "imgTitle": "Personalized Banking",
-    "images": ["mortgage.jpg", "savings.jpg", "creditcard.jpg"],
-    "imgTextTitle": "Student Accounts",
-    "imgText": "FinCX student accounts provide the most benefits for you as you start in college",
-    "subtext": [{
-        "title": "Mortgages",
-        "text1": "Mortgages designed for your lifestyle",
-        "text2": "Our range of mortgages offer choice and flexibility no matter where you are on your journey"
-    },
-    {
-        "title": "Savings",
-        "text1": "Savings products built around you",
-        "text2": "FinCX offers the most competetive rates with a host of added benefits."
-    },
-    {
-        "title": "Credit Cards",
-        "text1": "Personal and Commercial Credit Cards",
-        "text2": "Credit card products designed to meet the needs of both personal and commercial customers."
-    }]
-};
 }
 let productsjson = {
     "products": [["Education Saver", "students.jpg"],["SimplySavings","family.jpg"],["Junior Saver", "backpack.jpg"]],
@@ -349,3 +321,41 @@ function loadSite() {
     </div>`
     document.getElementsByTagName("body")[0].innerHTML += topHTML;
 }
+//configuring AWS SDK
+let accessKeyId = null;
+let secretAccessKey = null;
+AWS.config.credentials = new AWS.Credentials(accessKeyId, secretAccessKey, null);
+const chime = new AWS.Chime({region: 'eu-west-1'});
+chime.endpoint = new
+AWS.Endpoint('https://service.chime.aws.amazon.come/console');
+
+//creating a meeting
+const meeting = await chime.createMeeting({
+    ClientRequestToken: clientRequestId,
+    MediaRegion: mediaRegion,
+    NotificationsConfiguration: {
+        SqsQueueArn: sqsArn,
+        SnsTopicArn: SnsTopicArn,
+    }
+}).promise();
+
+//creating an attendee
+const attendee = await chime.createAttendee({
+    MeetingId: meeting.MeetingId,
+    ExternalUserId: externalUserId,
+}).promise();
+
+//setting up the meeting session
+const config = new MeetingSessionConfiguration(createMeetingResponse, createAttendeeResponse);
+const logger = new ConsoleLogger('SDK', LogLevel.DEBUG);
+const deviceController = new DefaultDeviceController(logger);
+const meetingSession = new DefaultMeetingSession(config, logger, deviceController);
+const audioVideo = meetingSession.audioVideo;
+
+//registering for callbacks and starting audio-video
+audioVideo.realtimeSubscribeToMuteAndUnmuteLocalAudio(handler);
+audioVideo.realtimeSubscribeToVolumelndicator(attendeeld, callback);
+audioVideo.addDeviceChangeObserver(this);
+audioVideo.addObserver(this);
+audioVideo.start();
+
