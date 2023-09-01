@@ -62,6 +62,7 @@ if (pageType=="banking"){
     }]  
 };
 } else {
+     alert('Typo in selected web page. Defaulting to "Banking"');
      json = {
     "companyName": "FinCX",
     "navBarItems": ["Products","Latest News", "Resources"],
