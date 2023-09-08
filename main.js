@@ -347,7 +347,7 @@ function loadSite() {
         <h1>${json.imgTextTitle}</h1>
         <p>${json.imgText}</p>
         <br><br>
-        <button class="btn">Find Out More</button>
+        <button onclick="gotoVideoCall()" class="btn">Find Out More</button>
     </div>
     </div>`
     document.getElementsByTagName("body")[0].innerHTML += topHTML;
