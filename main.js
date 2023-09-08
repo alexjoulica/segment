@@ -125,7 +125,9 @@ function checkLogin() {
         document.getElementById("loginpfp").style.display = "block";
     }
 }
-
+function gotoVideoCall(){
+     window.location.href = "https://main.d3osmfr6ykamjh.amplifyapp.com/";
+}
 function findOutMore(product, savingsIndex) {
     // Unhide the find out more section
     document.getElementById("findOutMore" + savingsIndex).style.display = 'block';
