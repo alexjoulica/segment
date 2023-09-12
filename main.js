@@ -1,3 +1,4 @@
+// takes the url and stores the URL variable 'page_type' as pageType; updating the value if it is null or not equal to the one currently in the URL
 let urlString = window.location.search;
 let urlParams = new URLSearchParams(urlString);
 let pageType = urlParams.get('page_type');
@@ -7,6 +8,7 @@ if (!localStorage.getItem("page_type")) {
      localStorage.setItem("page_type", pageType);
 }
 let json = "";
+// setting the text for the banking website
 if (pageType=="banking"){
      json = {
     "companyName": "FinCX",
@@ -34,6 +36,7 @@ if (pageType=="banking"){
         "text2": "Credit card products designed to meet the needs of both personal and commercial customers."
     }]
 };
+// setting the text for the insurance website
 } else if (pageType=="insurance") {
     json = {
     "companyName": "InsCX",
@@ -61,6 +64,7 @@ if (pageType=="banking"){
         "text2": "Colour: Red"
     }]  
 };
+// if the 'page_type' is not found alert the user and default to the banking website
 } else {
      alert('Typo in selected web page. Defaulting to "Banking"');
      json = {
@@ -91,6 +95,7 @@ if (pageType=="banking"){
 };
      localStorage.setItem("page_type", "banking");
 }
+// text for the savings page
 let productsjson = {
     "products": [["Education Saver", "students.jpg"],["SimplySavings","family.jpg"],["Junior Saver", "backpack.jpg"]],
     "description": ["Our Education Saver accounts are designed for families as they get ready for college expenses. Suitable for both regular and lump deposits","Our SimplySavings is designed to meet your regular savings needs. Save as much as you want monthly and adjust according to your needs.","Our Junior Saver account is designed for those wishing to start their banking journey. Save according to your needs."],
@@ -102,7 +107,7 @@ let productsjson = {
     "findOutMoreText": ["With the Education Saver Account from FinCX, you set your monthly savings amount and we do the rest. You choose the amount you want to save each month (from €1 to €1,000).  Earn 1.00% Gross / AER (variable) interest rate on balances up to €50,000.99. Earn 0.01% Gross / AER (variable) interest rate on the entire balance (including interest) if your balance exceeds €50,000.99.<br><br>You’ll receive your interest, minus Deposit Interest Retention Tax (DIRT), on the first working day after 20th November each year. A variable rate means that your interest may change from time to time. Annual Equivalent Rate (AER) illustrates what the interest would be if interest was paid and compounded each year. Our AER calculation assumes that the account is held for a year and that the interest rate remains constant.","Apply online in minutes and start your savings habit. Save monthly by Direct Debit from large to small amounts. Minimum €5 – Maximum €2,500. Get instant access to your money in any FinCX branch. Available to 16 years of age and over. Can only be funded from one personal current account. Get our best fixed savings rate 2.00% AER (Annual Equivalent Rate), for 12 months, (Interest is subject to Deposit Interest Retention Tax (DIRT) at the prevailing rate). Receive a €100 refund on your home or car insurance policy purchased or renewed with FinCX.","If you are a Student Saver between the ages of 12 – 17 inclusive, you can open a Junior Saver Account. If you are under 16 years old, we will need to make sure that your Parent/Guardian is happy for you to start saving with us. This account is only available as a sole account in your name. You can save as little or as much as you like, there is no minimum or maximum limit. You can save an amount that suits you monthly or just top up your balance as you choose. You have the flexibility to withdraw any amount, any time.<br><br> To reward your savings, we will give you a great interest rate on balances up to €1,000. All amounts above €1,000 will earn a lower rate of interest. Interest is variable, calculated daily and paid into your account in April and October. When you reach the age of 19, your account will automatically change to a suitable demand deposit account. We will give two months notice before this change is made We don't charge maintenance or transaction fees but there may be other service charges. For details see \"A Guide to Fees and Charges for Personal Accounts\"."],
 
 }
-
+// setting a random session id
 var sessionId = sessionStorage.getItem("sessionId");
 if (sessionId == null) {
     sessionId = Math.floor(Math.random() * 100000);
@@ -117,6 +122,7 @@ if (sessionId == null) {
     });
 }}();
 */
+// checking if the user is logged in
 function checkLogin() {
     var x = localStorage.getItem("usrnm", "null");
     if (x == null) {
@@ -125,9 +131,7 @@ function checkLogin() {
         document.getElementById("loginpfp").style.display = "block";
     }
 }
-function gotoVideoCall(){
-     window.location.href = "https://main.d3osmfr6ykamjh.amplifyapp.com/";
-}
+// track call for the find out more buttons
 function findOutMore(product, savingsIndex) {
     // Unhide the find out more section
     document.getElementById("findOutMore" + savingsIndex).style.display = 'block';
@@ -141,7 +145,7 @@ function findOutMore(product, savingsIndex) {
         product: product,
     });
 }
-
+// assigning the name based on the email and setting the email as 'usrnm'
 function login(email) {
     localStorage.setItem("id", Math.floor(Math.random() * 101));
     if (email=="alex@joulica.io"){
@@ -162,7 +166,6 @@ function login(email) {
 
     window.location = window.location;
 }
-
 function productsDropdown() {
     document.getElementById("productsDropdown").classList.toggle("show");
 }
@@ -191,7 +194,7 @@ window.onclick = function(event) {
         }
     }
 }
-
+// loading the navigation bar
 function loadDemo() {
     let navigationBar = [`
     <div class="navbar">
@@ -214,7 +217,7 @@ function loadDemo() {
     </div>`
     ];
     document.getElementsByTagName("body")[0].innerHTML = navigationBar + document.getElementsByTagName("body")[0].innerHTML;
-
+// list of the users
     let users = [
         ["Tony", "tony@joulica.io"],
         ["Alex", "alex@joulica.io"],
@@ -267,7 +270,7 @@ function loadDemo() {
     });
     document.getElementById("webTitle").innerHTML = json.companyName;
 }
-
+// adding the savings sections to the savings page
 function addSavingsToProductPage() {
     for (let i = 0; i < productsjson.products.length; i++) {
         let productsHTML = `
@@ -318,6 +321,7 @@ function addSavingsToProductPage() {
         document.getElementsByTagName("body")[0].innerHTML += productsHTML;
     }
 }
+// adding the containers to the home page
 function addContainerstoHomePage() {
     for (let i = 0; i < 3; i++) {
         let homeHTML = `
@@ -336,6 +340,7 @@ function addContainerstoHomePage() {
         document.getElementsByTagName("body")[0].innerHTML += homeHTML;
     }
 }
+// loading the top section of the site
 function loadSite() {
     let topHTML = 
     `<div id="container">
