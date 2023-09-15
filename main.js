@@ -358,7 +358,7 @@ function loadSite() {
     document.getElementsByTagName("body")[0].innerHTML += topHTML;
 }
 function gotoVideoCall(){
-     window.location.href = "videoapp.html"
+     window.location.href = "https://3mxuzz.sse.codesandbox.io/"
 }
 
 
