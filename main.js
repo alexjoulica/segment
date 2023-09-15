@@ -357,5 +357,8 @@ function loadSite() {
     </div>`
     document.getElementsByTagName("body")[0].innerHTML += topHTML;
 }
+function gotoVideoCall(){
+     window.location.href = "https://main.d3osmfr6ykamjh.amplifyapp.com/"
+}
 
 
