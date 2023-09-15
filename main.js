@@ -339,6 +339,8 @@ function addContainerstoHomePage() {
         </div>`
         document.getElementsByTagName("body")[0].innerHTML += homeHTML;
     }
+     let videoHTML = `<iframe style="width: 100%; height: 400px;"src="https://r66nsp.sse.codesandbox.io/"></iframe>`;
+     document.getElementByTagName("body")[0].innerHTML += videoHTML;
 }
 // loading the top section of the site
 function loadSite() {
