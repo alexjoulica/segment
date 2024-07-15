@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <meta name="description" content="FinCX Home">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="main.css">
+    <style>
+        * {
+            font-family: 'Rubik', sans-serif;
+        }
+        .login-form {
+            width: 300px;
+            margin: 40px auto;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .login-form input[type="text"], .login-form input[type="password"] {
+            width: 100%;
+            height: 40px;
+            margin-bottom: 20px;
+            padding: 10px;
+        }
+        .login-form button[type="submit"] {
+            width: 100%;
+            height: 40px;
+            padding: 10px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .login-form button[type="submit"]:hover {
+            background-color: black;
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="login-form">
+        <h1 style="text-align: center; color: white;">Login</h1>
+        <form id="loginForm" action="index.html" method="post">
+            <input type="text" id="username" name="username" placeholder="Email">
+            <input type="password" id="password" name="password" placeholder="Password">
+            <p id="warningText" style="color: black"></p>
+            <button type="submit" id="loginButton" class="applyOnline">Login</button>
+        </form>
+    </div>
+    <script>
+        const emails = {
+            "alex@joulica.io": "Alex",
+            "tony@joulica.io": "Tony",
+            "john@joulica.io": "John",
+            "joe@joulica.io": "Joe",
+            "kimaya@joulica.io": "Kimaya",
+            "declan@joulica.io": "Declan"
+        }
+
+        function updateWarningText(warningText) {
+            document.getElementById("warningText").innerHTML = warningText;
+        }
+
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            var username = document.getElementById("username").value.toLowerCase().trim();
+            var password = document.getElementById("password").value;
+
+            if (username == "" || !/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(username) || !emails[username]) {
+                updateWarningText("Invalid email");
+                return;
+            } else if (password == "") {
+                updateWarningText("Invalid password");
+                return;
+            }
+
+            sessionStorage.setItem("username", username);
+            this.submit();
+        });
+    </script>
+</body>
+</html>
