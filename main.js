@@ -2,7 +2,7 @@
 let urlString = window.location.search;
 let urlParams = new URLSearchParams(urlString);
 let pageType = urlParams.get('page_type') ?? localStorage.getItem("page_type", "banking");
-if (!localStorage.getItem("page_type")) {
+if (localStorage.getItem("page_type")) {
     localStorage.setItem("page_type", pageType);
 }
 
@@ -157,12 +157,12 @@ window.onclick = function(event) {
 function loadDemo() {
     let navigationBar = [`
     <div class="navbar">
-        <a style="width: 20%; font-weight: bolder; font-size: 50px;" onclick="window.location.href = 'index.html?page_type=${localStorage.getItem("page_type")}';">${json.companyName}</a>
+        <a style="width: 20%; font-weight: bolder; font-size: 50px;" onclick="window.location.href = 'index.html';">${json.companyName}</a>
         <div class="dropdown">
             <button style="font-weight: bolder;" class="dropbtn" onclick="productsDropdown()">${json.navBarItems[0]}</button>
             <div class="dropdown-content" id="productsDropdown">
                 <a style="padding: 20px 32px 20px 32px">${json.dropdownOptns[0]}</a>
-                <a style="padding: 20px 32px 20px 32px" onclick="window.location.href = 'savings.html?page_type=${localStorage.getItem("page_type")}';">${json.dropdownOptns[1]}</a>
+                <a style="padding: 20px 32px 20px 32px" onclick="window.location.href = 'savings.html';">${json.dropdownOptns[1]}</a>
                 <a style="padding: 20px 32px 20px 32px">${json.dropdownOptns[2]}</a>
             </div>
         </div> 
