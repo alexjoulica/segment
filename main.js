@@ -1,11 +1,9 @@
 // takes the url and stores the URL variable 'page_type' as pageType; updating the value if it is null or not equal to the one currently in the URL
 let urlString = window.location.search;
 let urlParams = new URLSearchParams(urlString);
-let pageType = urlParams.get('page_type') ?? "banking";
+let pageType = urlParams.get('page_type') ?? localStorage.getItem("page_type", "banking");
 if (!localStorage.getItem("page_type")) {
-     localStorage.setItem("page_type", pageType);
-} else if (pageType && (pageType !== localStorage.getItem("page_type"))) {
-     localStorage.setItem("page_type", pageType);
+    localStorage.setItem("page_type", pageType);
 }
 
 let json = "";
