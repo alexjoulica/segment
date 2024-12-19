@@ -181,14 +181,14 @@ function loadDemo() {
         document.getElementById("loginbtn").innerHTML = "Logout of " + sessionStorage.getItem("username");
         (function(w, d, x, id){
             s=d.createElement('script');
-            s.src='https://dg9yx063wiiht.cloudfront.net/amazon-connect-chat-interface-client.js';
+            s.src='https://dtn7rvxwwlhud.cloudfront.net/amazon-connect-chat-interface-client.js';
             s.async=1;
             s.id=id;
             d.getElementsByTagName('head')[0].appendChild(s);
             w[x] =  w[x] || function() { (w[x].ac = w[x].ac || []).push(arguments) };
-        })(window, document, 'amazon_connect', 'e365379e-7723-4c5c-9b9b-2109e7c8c9ac');
+        })(window, document, 'amazon_connect', '3cf57999-3c44-41f0-92d5-06ea2f55b827');
         amazon_connect('styles', { openChat: { color: '#ffffff', backgroundColor: '#0080ff'}, closeChat: { color: '#ffffff', backgroundColor: '#0080ff'} });
-        amazon_connect('snippetId', 'QVFJREFIamdsRVl4aTRZOWtaSkdZSFNPQ0JZNE53UGdNdWFZUGJMdGZFWEdLazhGTndHWlhrMVpWTDRaVVpBdWRzTHdUby9sQUFBQWJqQnNCZ2txaGtpRzl3MEJCd2FnWHpCZEFnRUFNRmdHQ1NxR1NJYjNEUUVIQVRBZUJnbGdoa2dCWlFNRUFTNHdFUVFNVmhXcFpmeWtiYWErUStrc0FnRVFnQ3ZsaTdhSU85THZ2UFNpWE8rbStBZzlOMGJnR1A3NEtoclNiTllPQzNUZ1BkNDJZSnNRYlI1S2xsaGI6OjlwNEQwNkM1eXMzRER3NmlrSkJPck1IQmxucFVvTWJUeGNiSStwUW45MThkUUZiSGRnaEFZVFZoSXNnenZHbmFPOW43Q3ZPSDNmZWtEa0Q0cTZwcVRPUWZTMWJGci9RSEUwRWw5WTEvWE54K05ndEw5OVRWUHBmNUhkWU9malk4ZGp3dkhieHdXME5hVEpMSk5Za3BOdnR4MG9MZFZ6ST0=');
+        amazon_connect('snippetId', 'QVFJREFIaWFZYXRVSlpIekdkUUg5YXhZenVQMktKRXNIWTVFQWpBYVErTEdzRnpvZHdFMlZ5Y3VDdnhIS1poTXdyVnYxdkhqQUFBQWJqQnNCZ2txaGtpRzl3MEJCd2FnWHpCZEFnRUFNRmdHQ1NxR1NJYjNEUUVIQVRBZUJnbGdoa2dCWlFNRUFTNHdFUVFNZHBLaUVkQjZ5bzdPL3BNN0FnRVFnQ3ZmSFFWb3NWMldrZkpvN0sweGhCMWJzOC80cFRiVXFlSU94WjBTWFdocW9zZDVicmxjbGRNTGg4Sy86OmpwakNTRWhaOXBVcGpHWGFLNHZ3dnJNVFZRdmJ6VWxlWnFoQktjcnQ1bjdKVlg4OEFFSzhKVzZVdWtFRmVEODdDcGV4a0wxSmhQT1Vjb3NxTzdSWVJTSmF5RnNqU2dCbURBSk5YcFVMOG9lczJYeTdydnpsVng0M2pvOHV1enhJMklZNlVVeEY3MzZ3YzE0UExUVHFlLzVQc25vQUFCMD0=');
         amazon_connect('supportedMessagingContentTypes', [ 'text/plain', 'text/markdown' ]);
         amazon_connect("customerDisplayName", function(callback) {
             const displayName = localStorage.getItem("name", "null");
